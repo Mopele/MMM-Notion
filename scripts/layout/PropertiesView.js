@@ -67,12 +67,23 @@ class PropertiesView {
 			case "status":
 				this.createStatus(property.status)
 				break;
+			case "formula":
+				this.createFormula(property.formula.number)
 			case "date":
 				this.createDate(property.date)
 				break;
 		}
 	}
-
+	createFormula(value){
+		if (value === null || value === undefined) return
+		value = value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+		const text = document.createElement("p")
+		text.id = "mmm-notion-property-text"
+		text.innerHTML += value
+		text.innerHTML += "€"
+		this.wrapper.appendChild(text)
+	}
+	
 	createTitleWrapper() {
 		const titleContainer = document.createElement("div")
 		titleContainer.id = "mmm-notion-listview-titleContainer"

@@ -21,6 +21,9 @@ class PropertiesView {
 	createProperty(property) {
 		switch (property.type) {
 			case "title":
+				if (property.title.length === 0){
+					return
+				}
 				this.createTitleWrapper()
 				break;
 			case "checkbox":

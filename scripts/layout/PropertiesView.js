@@ -72,6 +72,7 @@ class PropertiesView {
 				break;
 			case "formula":
 				this.createFormula(property.formula.number)
+				break;
 			case "date":
 				this.createDate(property.date)
 				break;
